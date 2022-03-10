@@ -10,10 +10,7 @@
                 <a href="#" class="mx-1 text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Export</a>
             </div>
         </div>
-        
-
-
-        
+    
     </x-slot>
 
     <div class="py-12">
@@ -51,20 +48,26 @@
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                                 
                                                 <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                    {{ $attendance['nim'] }}
+                                                    {{ $attendance->nim }}
                                                 </td>
                                                 <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    {{ $attendance['name'] }}
+                                                    {{ $attendance->name }}
                                                 </td>
                                                 <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                    {{ $attendance['email'] }}
+                                                    {{ $attendance->email }}
                                                 </td>
                                                 <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                                    {{ $attendance['created_at'] }}
+                                                    {{ $attendance->created_at }}
                                                 </td>
-                                                <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                                    <a href="#" class="mx-1 text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800">Edit</a>
-                                                    <a href="#" class="mx-1 text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-800">Delete</a>
+                                                <td class="py-4 px-2 text-sm font-medium text-right whitespace-nowrap flex items-center">
+                                                        <a href="/attendance/{{ $attendance->id }}/edit" class="mx-1 text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800">Edit</a>
+
+                                                    <form action="/attendance/{{ $attendance->id }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                
+                                                        <a href="" class="mx-1 text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-800">Delete</a>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             @endforeach

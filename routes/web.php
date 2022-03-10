@@ -28,8 +28,20 @@ Route::get('/attendance', [AttendanceController::class, "index"])
     ->middleware(['auth'])->name('attendance');
 Route::get('/attendance/create', [AttendanceController::class, "create"])
     ->middleware(['auth'])->name('attendance');
+Route::get('/attendance/{id}/edit', [AttendanceController::class, "edit"])
+    ->middleware(['auth'])->name('attendance');
+
+Route::put('/attendance/{id}', [AttendanceController::class, "update"])
+    ->middleware(['auth'])->name('attendance');
+
+Route::delete('/attendance/{id}', [AttendanceController::class, "destroy"])
+    ->middleware(['auth'])->name('attendance');
 
 Route::post('/attendance', [AttendanceController::class, "store"])
     ->middleware(['auth'])->name('attendance');
+
+
+
+
 
 require __DIR__.'/auth.php';

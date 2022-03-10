@@ -9,7 +9,7 @@ class AttendanceController extends Controller
 {
     public function index()
     {
-        $attendances = Attendance::paginate(10);
+        $attendances = Attendance::orderBy('id', 'desc')->paginate(10); //can use created_at
         return view('attendance.index', compact('attendances'));
     }
 
@@ -20,12 +20,35 @@ class AttendanceController extends Controller
 
     public function store(Request $request)
     {
-        $attendance = new Attendance();
-        $attendance->nim = $request->nim;
-        $attendance->name = $request->name;
-        $attendance->email = $request->email;
-        $attendance->save();
+        Attendance::create([
+            'nim' => $request->nim,
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
 
+        return redirect('/attendance');
+    }
+
+    public function edit($id)
+    {
+        $attendance = Attendance::find($id);
+        return view('attendance.edit', compact('attendance'));
+    }
+
+    public function update(Request $request, $id){
+        
+        Attendance::find($id)->update([
+            'nim' => $request->nim,
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        return redirect('/attendance');
+    }
+
+    public function destroy($id)
+    {
+        Attendance::find($id)->delete();
         return redirect('/attendance');
     }
 }
