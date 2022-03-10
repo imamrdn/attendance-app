@@ -60,4 +60,14 @@ class AttendanceController extends Controller
 	{
 		return Excel::download(new AttendanceExport, 'attendance.xlsx');
 	}
+
+    // public function getCreatedAtAttribute($date)
+    // {
+    //     return Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
+    // }
+
+    // public function getUpdatedAtAttribute($date)
+    // {
+    //     return Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
+    // }
 }
