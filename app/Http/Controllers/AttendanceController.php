@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attendance;
+use App\Exports\AttendanceExport;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class AttendanceController extends Controller
 {
@@ -51,4 +55,9 @@ class AttendanceController extends Controller
 
         return redirect('/attendance');
     }
+
+    public function export_excel()
+	{
+		return Excel::download(new AttendanceExport, 'attendance.xlsx');
+	}
 }
