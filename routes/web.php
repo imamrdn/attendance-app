@@ -42,10 +42,4 @@ Route::delete('/attendance/{id}', [AttendanceController::class, "destroy"])
 Route::post('/attendance', [AttendanceController::class, "store"])
     ->middleware(['auth'])->name('attendance');
 
-
-
-
-
-
-
 require __DIR__.'/auth.php';
