@@ -13,7 +13,7 @@ class AttendanceController extends Controller
 {
     public function index()
     {
-        $attendances = Attendance::orderBy('id', 'desc')->paginate(10); //can use created_at
+        $attendances = Attendance::orderBy('id', 'desc')->paginate(5); //can use created_at
         return view('attendance.index', compact('attendances'));
     }
 
