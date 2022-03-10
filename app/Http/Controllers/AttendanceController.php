@@ -46,9 +46,9 @@ class AttendanceController extends Controller
         return redirect('/attendance');
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id){
         Attendance::find($id)->delete();
+
         return redirect('/attendance');
     }
 }

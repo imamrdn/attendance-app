@@ -60,14 +60,13 @@
                                                     {{ $attendance->created_at }}
                                                 </td>
                                                 <td class="py-4 px-2 text-sm font-medium text-right whitespace-nowrap flex items-center">
-                                                        <a href="/attendance/{{ $attendance->id }}/edit" class="mx-1 text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800">Edit</a>
+                                                    <a href="attendance/{{ $attendance->id }}/edit" class="mx-1 text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800">Edit</a>
 
-                                                    <form action="/attendance/{{ $attendance->id }}" method="POST">
+                                                    <form action="attendance/{{ $attendance->id }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
-                                                
-                                                        <a href="" class="mx-1 text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-800">Delete</a>
-                                                    </form>
+                                                            <button class="mx-1 text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-800">Delete</button>
+                                                        </form> 
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -79,16 +78,10 @@
                             </div>
                             
                         </div>
+
+                        
                         <div class="mt-5 float-right">
-                            <!-- Previous Button -->
-                            <a href="#" class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                                Previous
-                            </a>
-                            
-                            <!-- Next Button -->
-                            <a href="#" class="inline-flex items-center py-2 px-4 ml-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                                Next
-                            </a>
+                            {{ $attendances->links() }}
                         </div>
                     </div>
                 </div>
