@@ -47,10 +47,10 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('Already a member ?') }}    
                 </a>
 
-                <x-button class="ml-4">
+                <x-button class="ml-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     {{ __('Register') }}
                 </x-button>
             </div>

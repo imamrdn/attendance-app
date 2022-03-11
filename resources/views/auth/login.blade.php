@@ -47,10 +47,18 @@
                     </a>
                 @endif
 
-                <x-button class="ml-3">
+                <x-button class="ml-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     {{ __('Log in') }}
                 </x-button>
             </div>
+
+            <p class="w-full text-xs text-center text-gray-700 my-6 sm:text-sm sm:my-8">
+                {{ __("Don't have an account?") }}
+                <a class="text-blue-500 hover:text-blue-700 no-underline hover:underline" href="{{ route('register') }}">
+                    {{ __('Register') }}
+                </a>
+            </p>
+                   
         </form>
     </x-auth-card>
 </x-guest-layout>

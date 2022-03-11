@@ -6,8 +6,16 @@
             </h2>
         
             <div>
-                <a href="/attendance/create" class="mx-1 text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create</a>
-                <a href="/attendance/export_excel" class="mx-1 text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Export</a>
+                <x-button class="mx-1 bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <a href="/attendance/create">
+                        Create
+                    </a>
+                </x-button>
+                <x-button class="mx-1 bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                    <a href="/attendance/export_excel" >
+                        Export
+                    </a>
+                </x-button>
             </div>
         </div>
     
@@ -60,12 +68,16 @@
                                                     {{ $attendance->created_at }}
                                                 </td>
                                                 <td class="py-4 px-2 text-sm font-medium text-right whitespace-nowrap flex items-center">
-                                                    <a href="attendance/{{ $attendance->id }}/edit" class="mx-1 text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800">Edit</a>
+                                                    <x-button class="mx-1 bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:ring-gray-300 text-center dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+                                                        <a href="attendance/{{ $attendance->id }}/edit">Edit</a>
+                                                    </x-button>
 
                                                     <form action="attendance/{{ $attendance->id }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
-                                                            <button class="mx-1 text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2 text-center dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-800">Delete</button>
+                                                            <x-button class="mx-1 bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 text-center dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-800">
+                                                                Delete
+                                                            </x-button>
                                                         </form> 
                                                 </td>
                                             </tr>
